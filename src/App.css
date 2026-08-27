@@ -1434,45 +1434,37 @@
 /* all home page styles ends here */
 
 /* =========================================================
-   PRUTHSERVICE NAVBAR
+   PRUTHMARTGLOBALS NAVBAR
    ========================================================= */
 
 .pruth-navbar {
-  /* position: sticky; */
   top: 0;
   left: 0;
+  z-index: 9999;
   width: 100%;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid #e7eee9;
-  /* backdrop-filter: blur(15px); */
-  /* -webkit-backdrop-filter: blur(15px); */
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.04);
 }
 
 .pruth-navbar-inner {
   min-height: 82px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 25px;
 }
 
-
-/* =========================================================
-   BRAND
-   ========================================================= */
-
+/* ========== BRAND ========== */
 .pruth-brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 11px;
   flex-shrink: 0;
   text-decoration: none;
 }
-
 .pruth-brand-icon {
-  width: 43px;
-  height: 43px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1483,96 +1475,76 @@
   box-shadow: 0 7px 18px rgba(0, 107, 45, 0.18);
   transition: 0.3s ease;
 }
-
 .pruth-brand:hover .pruth-brand-icon {
-  transform: rotate(-5deg) scale(1.04);
+  transform: rotate(-5deg) scale(1.05);
 }
-
 .pruth-brand-text {
   display: flex;
   flex-direction: column;
   line-height: 1;
 }
-
 .pruth-brand-text strong {
   color: #102118;
   font-size: 17px;
-  font-weight: 850;
+  font-weight: 800;
   letter-spacing: -0.5px;
 }
-
 .pruth-brand-text span {
   margin-top: 5px;
   color: #718078;
   font-size: 8px;
   font-weight: 700;
-  letter-spacing: 1.1px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-
-/* =========================================================
-   DESKTOP NAVIGATION
-   ========================================================= */
-
+/* ========== DESKTOP MENU ========== */
 .pruth-desktop-menu {
+  margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
-  margin-left: auto;
+  gap: 4px;
 }
-
 .pruth-nav-link {
   position: relative;
-  padding: 9px 12px;
-  color: #5e6b64;
+  padding: 10px 12px;
+  color: #59675f;
   font-size: 12px;
   font-weight: 650;
   text-decoration: none;
   transition: 0.25s ease;
 }
-
+.pruth-nav-link:hover {
+  color: #006b2d;
+}
 .pruth-nav-link::after {
   content: "";
   position: absolute;
   left: 12px;
   right: 12px;
-  bottom: 1px;
+  bottom: 3px;
   height: 2px;
   border-radius: 10px;
   background: #006b2d;
   transform: scaleX(0);
-  transform-origin: center;
   transition: 0.25s ease;
 }
-
-.pruth-nav-link:hover {
-  color: #006b2d;
-}
-
 .pruth-nav-link:hover::after,
 .pruth-nav-link.active::after {
   transform: scaleX(1);
 }
-
 .pruth-nav-link.active {
   color: #006b2d;
   font-weight: 750;
 }
 
-
-/* =========================================================
-   NAVBAR ACTIONS
-   ========================================================= */
-
+/* ========== DESKTOP ACTIONS ========== */
 .pruth-navbar-actions {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 8px;
   margin-left: 10px;
 }
-
 .pruth-login-btn {
   padding: 10px 13px;
   color: #26352d;
@@ -1581,187 +1553,78 @@
   text-decoration: none;
   transition: 0.25s ease;
 }
-
 .pruth-login-btn:hover {
   color: #006b2d;
 }
-
 .pruth-start-btn {
   min-height: 43px;
-  padding: 10px 16px;
-  display: inline-flex;
+  padding: 10px 17px;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   border-radius: 8px;
   background: #006b2d;
-  color: #fff;
+  color: #ffffff;
   font-size: 11px;
   font-weight: 750;
   text-decoration: none;
-  box-shadow: 0 8px 18px rgba(0, 107, 45, 0.16);
+  box-shadow: 0 8px 18px rgba(0, 107, 45, 0.17);
   transition: 0.3s ease;
 }
-
 .pruth-start-btn:hover {
   background: #004b22;
-  color: #fff;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 11px 23px rgba(0, 107, 45, 0.22);
 }
-
 .pruth-start-btn i {
-  font-size: 13px;
-  transition: transform 0.25s ease;
+  transition: 0.25s ease;
 }
-
 .pruth-start-btn:hover i {
   transform: translateX(3px);
 }
 
-
-/* =========================================================
-   MOBILE TOGGLE
-   ========================================================= */
-
+/* ========== HAMBURGER ========== */
 .pruth-menu-toggle {
+  /* display: none; */
   width: 43px;
   height: 43px;
-  padding: 9px;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
+  margin-left: auto;
+  padding: 0;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   gap: 5px;
-  border: 1px solid #dfe9e2;
+  border: 1px solid #dce7df;
   border-radius: 10px;
-  background: #fff;
+  background: #ffffff;
   cursor: pointer;
+  outline: none;
 }
-
 .pruth-menu-toggle span {
   width: 20px;
   height: 2px;
+  display: block;
   border-radius: 10px;
   background: #006b2d;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
-
 .pruth-menu-toggle.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
-
 .pruth-menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
-
 .pruth-menu-toggle.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
+/* ========== MOBILE MENU ========== */
 .pruth-mobile-menu {
   display: none;
 }
 
-.pruth-mobile-link {
-  min-height: 47px;
-  padding: 12px 5px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-bottom: 1px solid #edf2ee;
-  color: #526159;
-  font-size: 13px;
-  font-weight: 650;
-  text-decoration: none;
-}
-
-.pruth-mobile-link i {
-  width: 25px;
-  color: #006b2d;
-  font-size: 16px;
-}
-
-.pruth-mobile-link.active {
-  color: #006b2d;
-  font-weight: 750;
-}
-
-.pruth-mobile-divider {
-  height: 1px;
-  margin: 7px 0 12px;
-  background: #e4ece6;
-}
-
-.pruth-mobile-actions {
-  display: flex;
-  gap: 10px;
-  padding-bottom: 18px;
-}
-
-.pruth-mobile-login,
-.pruth-mobile-start {
-  min-height: 45px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: 750;
-  text-decoration: none;
-}
-
-.pruth-mobile-login {
-  border: 1px solid #d8e3dc;
-  color: #26352d;
-}
-
-.pruth-mobile-start {
-  background: #006b2d;
-  color: #fff;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-  .pruth-desktop-menu {
-    gap: 0;
-  }
-
-  .pruth-nav-link {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .pruth-nav-link::after {
-    left: 8px;
-    right: 8px;
-  }
-
-  .pruth-navbar-actions {
-    gap: 4px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
 @media (max-width: 991px) {
-
   .pruth-navbar-inner {
     min-height: 72px;
   }
@@ -1777,50 +1640,95 @@
 
   .pruth-mobile-menu {
     display: block;
+    width: 100%;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    visibility: hidden;          /* prevents interaction when hidden */
+    pointer-events: none;        /* prevents clicks */
     transition:
       max-height 0.35s ease,
-      opacity 0.25s ease;
+      opacity 0.25s ease,
+      visibility 0.25s ease;
   }
 
   .pruth-mobile-menu.show {
     max-height: 600px;
     opacity: 1;
-    padding-top: 5px;
+    visibility: visible;
+    pointer-events: auto;
+    padding-bottom: 18px;
   }
 
+  .pruth-mobile-link {
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 5px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border-bottom: 1px solid #edf2ee;
+    color: #526159;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .pruth-mobile-link i {
+    width: 25px;
+    color: #006b2d;
+    font-size: 16px;
+  }
+  .pruth-mobile-link.active {
+    color: #006b2d;
+    font-weight: 750;
+  }
+
+  .pruth-mobile-actions {
+    display: flex;
+    gap: 10px;
+    padding-top: 15px;
+  }
+  .pruth-mobile-login,
+  .pruth-mobile-start {
+    flex: 1;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .pruth-mobile-login {
+    border: 1px solid #d8e3dc;
+    background: #ffffff;
+    color: #26352d;
+  }
+  .pruth-mobile-start {
+    background: #006b2d;
+    color: #ffffff;
+  }
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 420px) {
-
+@media (max-width: 480px) {
   .pruth-navbar-inner {
     min-height: 68px;
   }
-
   .pruth-brand-icon {
     width: 39px;
     height: 39px;
     font-size: 18px;
   }
-
   .pruth-brand-text strong {
     font-size: 15px;
   }
-
   .pruth-brand-text span {
     font-size: 7px;
   }
-
   .pruth-menu-toggle {
     width: 40px;
     height: 40px;
   }
-
 }
