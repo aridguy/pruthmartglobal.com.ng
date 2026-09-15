@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../component/Navbar";
+// import Navbar from "../component/Navbar";
 // import "./Home.css";
 
 const Home = () => {
   return (
     <div className="home-page">
-        <Navbar />
+        
       {/* ================= HERO ================= */}
       <section className="home-hero">
         <div className="container">

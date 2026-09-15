@@ -1,22 +1,29 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import "../App.css"
+import "../App.css";
 
 const Navbar = () => {
-//   const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-//   const closeMenu = () => setOpen(false);
-//   const toggleMenu = () => setOpen((prev) => !prev);
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setOpen((prev) => !prev);
+  };
 
   return (
     <header className="pruth-navbar">
       <div className="container">
         <div className="pruth-navbar-inner">
+
           {/* LOGO */}
-          <Link to="/" className="pruth-brand" >
+          <Link to="/" className="pruth-brand" onClick={closeMenu}>
             <div className="pruth-brand-icon">
               <i className="bi bi-basket2-fill"></i>
             </div>
+
             <div className="pruth-brand-text">
               <strong>Pruthmartglobals</strong>
               <span>Foodstuff Savings</span>
@@ -25,6 +32,7 @@ const Navbar = () => {
 
           {/* DESKTOP MENU */}
           <div className="pruth-desktop-menu">
+
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -33,6 +41,7 @@ const Navbar = () => {
             >
               Home
             </NavLink>
+
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -41,6 +50,7 @@ const Navbar = () => {
             >
               About
             </NavLink>
+
             <NavLink
               to="/plans"
               className={({ isActive }) =>
@@ -49,6 +59,7 @@ const Navbar = () => {
             >
               Plans
             </NavLink>
+
             <NavLink
               to="/how-it-works"
               className={({ isActive }) =>
@@ -57,6 +68,7 @@ const Navbar = () => {
             >
               How It Works
             </NavLink>
+
             <NavLink
               to="/faq"
               className={({ isActive }) =>
@@ -65,6 +77,7 @@ const Navbar = () => {
             >
               FAQ
             </NavLink>
+
             <NavLink
               to="/contact"
               className={({ isActive }) =>
@@ -73,20 +86,25 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
+
           </div>
 
           {/* DESKTOP ACTIONS */}
           <div className="pruth-navbar-actions">
+
             <Link to="/login" className="pruth-login-btn">
               Login
             </Link>
+
             <Link to="/register" className="pruth-start-btn">
-              Start Saving <i className="bi bi-arrow-right"></i>
+              Start Saving
+              <i className="bi bi-arrow-right"></i>
             </Link>
+
           </div>
 
-          {/* HAMBURGER TOGGLE */}
-          {/* <button
+          {/* MOBILE HAMBURGER */}
+          <button
             type="button"
             className={`pruth-menu-toggle ${open ? "open" : ""}`}
             onClick={toggleMenu}
@@ -96,11 +114,13 @@ const Navbar = () => {
             <span></span>
             <span></span>
             <span></span>
-          </button> */}
+          </button>
+
         </div>
 
         {/* MOBILE MENU */}
-        {/* <div className={`pruth-mobile-menu ${open ? "show" : ""}`}>
+        <div className={`pruth-mobile-menu ${open ? "show" : ""}`}>
+
           <NavLink
             to="/"
             onClick={closeMenu}
@@ -111,6 +131,7 @@ const Navbar = () => {
             <i className="bi bi-house-door-fill"></i>
             <span>Home</span>
           </NavLink>
+
           <NavLink
             to="/about"
             onClick={closeMenu}
@@ -121,6 +142,7 @@ const Navbar = () => {
             <i className="bi bi-info-circle-fill"></i>
             <span>About</span>
           </NavLink>
+
           <NavLink
             to="/plans"
             onClick={closeMenu}
@@ -131,6 +153,7 @@ const Navbar = () => {
             <i className="bi bi-box-seam-fill"></i>
             <span>Plans</span>
           </NavLink>
+
           <NavLink
             to="/how-it-works"
             onClick={closeMenu}
@@ -141,6 +164,7 @@ const Navbar = () => {
             <i className="bi bi-list-check"></i>
             <span>How It Works</span>
           </NavLink>
+
           <NavLink
             to="/faq"
             onClick={closeMenu}
@@ -151,6 +175,7 @@ const Navbar = () => {
             <i className="bi bi-question-circle-fill"></i>
             <span>FAQ</span>
           </NavLink>
+
           <NavLink
             to="/contact"
             onClick={closeMenu}
@@ -162,7 +187,9 @@ const Navbar = () => {
             <span>Contact</span>
           </NavLink>
 
+          {/* MOBILE ACTIONS */}
           <div className="pruth-mobile-actions">
+
             <Link
               to="/login"
               onClick={closeMenu}
@@ -170,15 +197,19 @@ const Navbar = () => {
             >
               Login
             </Link>
+
             <Link
               to="/register"
               onClick={closeMenu}
               className="pruth-mobile-start"
             >
-              Start Saving <i className="bi bi-arrow-right"></i>
+              Start Saving
+              <i className="bi bi-arrow-right"></i>
             </Link>
+
           </div>
-        </div> */}
+
+        </div>
       </div>
     </header>
   );
