@@ -248,7 +248,7 @@ const Navbar = () => {
               {/* FOODSTUFF PLAN */}
               <li className="nav-item">
                 <Link
-                  to="/foodstuffs-plan"
+                  to="/plan"
                   className="nav-link px-3"
                   style={{
                     color: "#00563f",

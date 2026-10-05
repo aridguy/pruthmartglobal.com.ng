@@ -9,7 +9,10 @@ import NotFound from './pages/NotFound';
 import Aos from 'aos';
 import Footer from './component/Footer';
 import Scroll from './component/Scroll';
-
+import Plans from './component/Plan';
+import About from './pages/About';
+import Faq from './pages/Faq';
+// https://2wml0013-3000.uks1.devtunnels.ms/
 function App() {
   // animatioon innitialization
     useEffect(() => {
@@ -28,7 +31,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/plan" element={<Plans />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

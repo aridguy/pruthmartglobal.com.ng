@@ -16,9 +16,7 @@ const FALLBACK_IMAGE =
     </svg>`
   );
 
-/* ================= DATA =================
-   Unsplash template images. Swap for your own CDN when ready.
-========================================= */
+/* ================= DATA ================= */
 const DEFAULT_PRODUCTS = [
   {
     id: 1,
@@ -27,7 +25,7 @@ const DEFAULT_PRODUCTS = [
       "50KG bag of long grain parboiled rice. Stone-free, well sorted, and perfect for everyday family meals.",
     price: 78000,
     image:
-      "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1586201375761-83865001e31c?fm=webp&q=90&w=1600",
     badge: "Best Seller",
   },
   {
@@ -37,7 +35,7 @@ const DEFAULT_PRODUCTS = [
       "10KG of hand-sorted honey beans. Clean, well dried, and quick to cook with a rich natural taste.",
     price: 24500,
     image:
-      "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?fm=webp&q=90&w=1600",
   },
   {
     id: 3,
@@ -46,7 +44,7 @@ const DEFAULT_PRODUCTS = [
       "5 litre bottle of pure, cholesterol-free vegetable oil. Light, clean, and ideal for all cooking.",
     price: 12800,
     image:
-      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?fm=webp&q=90&w=1600",
   },
   {
     id: 4,
@@ -55,7 +53,7 @@ const DEFAULT_PRODUCTS = [
       "5 litre keg of rich, unrefined red palm oil. Deep colour and authentic flavour for traditional dishes.",
     price: 11500,
     image:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?fm=webp&q=90&w=1600",
   },
   {
     id: 5,
@@ -64,7 +62,7 @@ const DEFAULT_PRODUCTS = [
       "10KG of smooth, fine-sifted white garri. Freshly processed and perfect for soaking or eba.",
     price: 9500,
     image:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?fm=webp&q=90&w=1600",
     badge: "Popular",
   },
   {
@@ -74,7 +72,7 @@ const DEFAULT_PRODUCTS = [
       "10KG of premium semolina with a smooth, fine texture. Easy to prepare and great with any soup.",
     price: 14200,
     image:
-      "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1600271886742-f049cd451bba?fm=webp&q=90&w=1600",
   },
   {
     id: 7,
@@ -83,7 +81,7 @@ const DEFAULT_PRODUCTS = [
       "2KG of poundo yam flour. Quick, lump-free, and a convenient way to enjoy smooth pounded yam.",
     price: 6800,
     image:
-      "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1518977676601-b53f82aba655?fm=webp&q=90&w=1600",
   },
   {
     id: 8,
@@ -92,7 +90,7 @@ const DEFAULT_PRODUCTS = [
       "Bundle of 10 quality spaghetti packs. Firm texture that holds up well in any sauce.",
     price: 7900,
     image:
-      "https://images.unsplash.com/photo-1551462147-ff29053bfc14?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1551462147-ff29053bfc14?fm=webp&q=90&w=1600",
   },
   {
     id: 9,
@@ -101,7 +99,7 @@ const DEFAULT_PRODUCTS = [
       "Carton of 40 instant noodle packs in assorted flavours. A fast, filling option any time of day.",
     price: 9800,
     image:
-      "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?fm=webp&q=90&w=1600",
     badge: "New",
   },
   {
@@ -111,7 +109,7 @@ const DEFAULT_PRODUCTS = [
       "Carton of rich, thick tomato paste tins. Deep colour and concentrated flavour for your stews.",
     price: 8400,
     image:
-      "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=800&h=800&q=80",
+      "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?fm=webp&q=90&w=1600",
   },
 ];
 
@@ -140,9 +138,26 @@ const handleImageError = (event) => {
   img.src = FALLBACK_IMAGE;
 };
 
+/* ================= SKELETON CARD ================= */
+const SkeletonCard = () => (
+  <article className="featured-card featured-card-skeleton" aria-hidden="true">
+    <div className="featured-card-media featured-skeleton-media"></div>
+
+    <div className="featured-card-body">
+      <span className="featured-skeleton-line featured-skeleton-title"></span>
+      <span className="featured-skeleton-line featured-skeleton-desc"></span>
+      <span className="featured-skeleton-line featured-skeleton-desc short"></span>
+      <span className="featured-skeleton-line featured-skeleton-price"></span>
+      <span className="featured-skeleton-line featured-skeleton-btn"></span>
+    </div>
+  </article>
+);
+
 /* ================= COMPONENT ================= */
 const FeaturedProducts = ({
   products = DEFAULT_PRODUCTS,
+  loading = false,
+  skeletonCount = 8,
   eyebrow = "FEATURED PRODUCTS",
   title = "Stock Your Kitchen",
   titleAccent = "Everyday Essentials.",
@@ -156,6 +171,8 @@ const FeaturedProducts = ({
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [addedId, setAddedId] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const isEmpty = !loading && (!products || products.length === 0);
 
   /* ---------- arrow state ---------- */
   const updateArrows = useCallback(() => {
@@ -179,7 +196,7 @@ const FeaturedProducts = ({
       el.removeEventListener("scroll", updateArrows);
       window.removeEventListener("resize", updateArrows);
     };
-  }, [updateArrows]);
+  }, [updateArrows, loading, products]);
 
   useEffect(() => () => window.clearTimeout(timeoutRef.current), []);
 
@@ -249,7 +266,7 @@ const FeaturedProducts = ({
               type="button"
               className="featured-arrow"
               onClick={() => scrollByPage(-1)}
-              disabled={!canScrollLeft}
+              disabled={loading || isEmpty || !canScrollLeft}
               aria-label="Scroll products left"
             >
               <i className="bi bi-arrow-left"></i>
@@ -259,7 +276,7 @@ const FeaturedProducts = ({
               type="button"
               className="featured-arrow"
               onClick={() => scrollByPage(1)}
-              disabled={!canScrollRight}
+              disabled={loading || isEmpty || !canScrollRight}
               aria-label="Scroll products right"
             >
               <i className="bi bi-arrow-right"></i>
@@ -269,80 +286,96 @@ const FeaturedProducts = ({
 
         {/* ================= SLIDER ================= */}
         <div className="featured-track" ref={trackRef}>
-          {products.map((product) => {
-            const isAdded = addedId === product.id;
+          {loading &&
+            Array.from({ length: skeletonCount }).map((_, i) => (
+              <SkeletonCard key={`skeleton-${i}`} />
+            ))}
 
-            return (
-              <article
-                className="featured-card"
-                key={product.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedProduct(product)}
-                onKeyDown={(e) => handleCardKeyDown(e, product)}
-                aria-label={`View details for ${product.name}`}
-              >
-                <div className="featured-card-media">
-                  {product.badge && (
-                    <span className="featured-card-badge">{product.badge}</span>
-                  )}
+          {isEmpty && (
+            <div className="featured-empty">
+              <i className="bi bi-inbox"></i>
+              <strong>No products available yet</strong>
+              <span>Check back soon — we're restocking.</span>
+            </div>
+          )}
 
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    loading="lazy"
-                    onError={handleImageError}
-                  />
+          {!loading &&
+            products.map((product) => {
+              const isAdded = addedId === product.id;
 
-                  <span className="featured-card-view">
-                    <i className="bi bi-eye"></i>
-                    Quick View
-                  </span>
-                </div>
-
-                <div className="featured-card-body">
-                  <h3 className="featured-card-title">{product.name}</h3>
-
-                  <p className="featured-card-desc">{product.description}</p>
-
-                  <span className="featured-card-price">
-                    {formatPrice(product.price)}
-                  </span>
-
-                  <button
-                    type="button"
-                    className={`featured-card-btn${isAdded ? " is-added" : ""}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleAddToCart(product);
-                    }}
-                    aria-label={`Add ${product.name} to cart`}
-                  >
-                    {isAdded ? (
-                      <>
-                        <i className="bi bi-check2-circle"></i>
-                        Added
-                      </>
-                    ) : (
-                      <>
-                        <i className="bi bi-bag-plus"></i>
-                        Add to Cart
-                      </>
+              return (
+                <article
+                  className="featured-card"
+                  key={product.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedProduct(product)}
+                  onKeyDown={(e) => handleCardKeyDown(e, product)}
+                  aria-label={`View details for ${product.name}`}
+                >
+                  <div className="featured-card-media">
+                    {product.badge && (
+                      <span className="featured-card-badge">{product.badge}</span>
                     )}
-                  </button>
-                </div>
-              </article>
-            );
-          })}
+
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      loading="lazy"
+                      onError={handleImageError}
+                    />
+
+                    <span className="featured-card-view">
+                      <i className="bi bi-eye"></i>
+                      Quick View
+                    </span>
+                  </div>
+
+                  <div className="featured-card-body">
+                    <h3 className="featured-card-title">{product.name}</h3>
+
+                    <p className="featured-card-desc">{product.description}</p>
+
+                    <span className="featured-card-price">
+                      {formatPrice(product.price)}
+                    </span>
+
+                    <button
+                      type="button"
+                      className={`featured-card-btn${isAdded ? " is-added" : ""}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAddToCart(product);
+                      }}
+                      aria-label={`Add ${product.name} to cart`}
+                    >
+                      {isAdded ? (
+                        <>
+                          <i className="bi bi-check2-circle"></i>
+                          Added
+                        </>
+                      ) : (
+                        <>
+                          <i className="bi bi-bag-plus"></i>
+                          Add to Cart
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
         </div>
 
         {/* ================= FOOTER ================= */}
-        <div className="featured-footer">
-          <Link to="/products">
-            View all products
-            <i className="bi bi-arrow-right"></i>
-          </Link>
-        </div>
+        {!loading && !isEmpty && (
+          <div className="featured-footer">
+            <Link to="/products">
+              View all products
+              <i className="bi bi-arrow-right"></i>
+            </Link>
+          </div>
+        )}
 
       </div>
 
