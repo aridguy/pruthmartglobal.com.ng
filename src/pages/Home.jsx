@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FeaturedProducts from "../component/FeaturedProducts";
+// import Hero from "../component/Hero";
 // import Navbar from "../component/Navbar";
 // import "./Home.css";
 
@@ -115,7 +117,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      {/* <Hero /> */}
 
       {/* ================= TRUST STRIP ================= */}
       <section className="home-trust-strip">
@@ -166,6 +168,7 @@ const Home = () => {
         </div>
       </section>
 
+    <FeaturedProducts />
 
       {/* ================= INTRO ================= */}
       <section className="home-intro">
